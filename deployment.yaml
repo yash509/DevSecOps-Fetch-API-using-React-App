@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  replicas: 2  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: fapi-react-app
+  template:
+    metadata:
+      labels:
+        app: fapi-react-app
+    spec:
+      containers:
+      - name: fapi-react-app
+        image: yash5090/fapi-react-app:latest
+        ports:
+        - containerPort: 3000
