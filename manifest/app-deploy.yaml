@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  replicas: 2 # You can adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: fapi-react-app
+  template:
+    metadata:
+      labels:
+        app: fapi-react-app
+    spec:
+      containers:
+        - name: fapi-react-app
+          image: yash5090/fapi-react-app # Replace with the actual image tag
+          ports:
+            - containerPort: 3000 # Replace with the port your Tetris game listens on
