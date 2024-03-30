@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Checkout from Git') {                        
             steps {                                       
-                git branch: 'main', url: 'https://github.com/yash509/DevSecOps-React-Movie-App.git'
+                git branch: 'main', url: 'https://github.com/yash509/DevSecOps-Fetch-API-using-React-App.git'
             }
         }
         stage('Deployments') {
