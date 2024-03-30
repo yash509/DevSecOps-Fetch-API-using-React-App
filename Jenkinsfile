@@ -13,7 +13,7 @@ pipeline {
                 cleanWs()
             }
         }
-        stage('Unit Testing') {
+        stage('Unit Tests') {
             steps {
                 sh 'jenkins --version'
                 sh 'aws --version'
@@ -82,8 +82,8 @@ pipeline {
             steps {
                 //dir('Band Website') {
                     withSonarQubeEnv('sonar-server') {
-                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=react-movie-app \
-                    -Dsonar.projectKey=react-movie-app'''
+                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=react-fAPI-app \
+                    -Dsonar.projectKey=react-fAPI-app'''
                     //}
                 }
             }
@@ -222,7 +222,7 @@ pipeline {
         stage('Deploy to container'){
             steps{
                 //dir('BMI Calculator (JS)') {
-                    sh 'docker run -d --name m-react-app -p 3000:3000 yash5090/fapi-react-app:latest' 
+                    sh 'docker run -d --name fapi-react-app -p 3000:3000 yash5090/fapi-react-app:latest' 
                 //}
             }
         }
